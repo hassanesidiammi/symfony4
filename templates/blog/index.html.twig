@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog!{% endblock %}
+
+{% block body %}
+    {% if posts|length %}
+        <table>
+            <tr><th>ID</th><td>Title</td></tr>
+        {% for id, post in posts %}
+            <tr>
+                <th><a href="{{ path('post_show', {id: id}) }}">{{ id }}</a></th>
+                <td><a href="{{ path('post_show', {id: id}) }}">{{ post.title }}</a></td>
+            </tr>
+        {% endfor %}
+        </table>
+    {% else %}
+        <b>No post yet!</b>
+    {% endif %}
+    <p>
+        <a href="{{ path('post_add') }}">Add Post</a> <a href="{{ path('post_reset') }}">Reset</a>
+    </p>
+{% endblock %}

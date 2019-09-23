@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Blog!{% endblock %}
+
+{% block body %}
+    <table>
+        <tr><th>ID</th><td>{{ id }}</td></tr>
+        <tr><th>Title</th><td>{{ post.title }}</td></tr>
+        <tr><th>Body</th><td>{{ post.body }}</td></tr>
+    </table>
+    <p>
+        <a href="{{ path('post_index') }}">List</a>
+    </p>
+{% endblock %}
