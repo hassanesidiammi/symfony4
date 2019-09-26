@@ -37,6 +37,8 @@ class BlogController
         $posts[uniqid('post')] = [
             'title' => (count($posts) + 1).' '.substr(base64_encode('title '.rand(1, 50).uniqid()), 20),
             'body' => (count($posts)).' '.base64_encode('body '.rand(10, 500).uniqid()),
+            'createdAt' => new \DateTime(),
+            'price' => rand(100, 10000000)/1000,
         ];
         $session->set('posts', $posts);
 
