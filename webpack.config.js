@@ -30,7 +30,10 @@ Encore
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
         './node_modules/holderjs/holder.min.js'
     ])
-    .addStyleEntry('css/app', './node_modules/bootstrap/dist/css/bootstrap.min.css')
+    .addStyleEntry('css/app', [
+        './node_modules/bootstrap/dist/css/bootstrap.min.css',
+        './assets/css/app.css'
+    ])
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     // .splitEntryChunks()
