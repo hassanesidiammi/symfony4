@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New MicroPost{% endblock %}
+
+{% block body %}
+    <h1>Create new MicroPost</h1>
+
+    {{ include('blog/micro_post/_form.html.twig') }}
+
+    <a href="{{ path('micro_post_index') }}">back to list</a>
+{% endblock %}

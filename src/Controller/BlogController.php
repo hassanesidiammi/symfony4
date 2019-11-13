@@ -3,8 +3,7 @@
 
 namespace App\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Routing\Router;
-use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
+use App\Repository\MicroPostRepository;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -21,26 +20,19 @@ class BlogController
     /**
      * @Route("/", name="post_index")
      */
-    public function index(SessionInterface $session, Environment $twig)
+    public function index(Environment $twig, MicroPostRepository $microPostRepository)
     {
         return new Response($twig->render('blog/index.html.twig', [
-            'posts' => $session->get('posts', []),
+            'posts' => $microPostRepository->findAll(),
         ]));
     }
 
     /**
      * @Route("/add", name="post_add")
      */
-    public function add(SessionInterface $session, UrlGeneratorInterface $router)
+    public function add(UrlGeneratorInterface $router)
     {
-        $posts = $session->get('posts', []);
-        $posts[uniqid('post')] = [
-            'title' => (count($posts) + 1).' '.substr(base64_encode('title '.rand(1, 50).uniqid()), 20),
-            'body' => (count($posts)).' '.base64_encode('body '.rand(10, 500).uniqid()),
-            'createdAt' => new \DateTime(),
-            'price' => rand(100, 10000000)/1000,
-        ];
-        $session->set('posts', $posts);
+        
 
         return new RedirectResponse($router->generate('post_index'));
     }

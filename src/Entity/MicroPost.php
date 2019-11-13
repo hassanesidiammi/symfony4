@@ -33,8 +33,14 @@ class MicroPost
      */
     private $tags;
 
+    /**
+     * @ORM\Column(type="string", length=190)
+     */
+    private $title;
+
     public function __construct()
     {
+        $this->time = new \DateTime();
         $this->tags = new ArrayCollection();
     }
 
@@ -42,6 +48,44 @@ class MicroPost
     {
         return $this->id;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getText()
+    {
+        return $this->text;
+    }
+
+    /**
+     * @param mixed $text
+     * @return MicroPost
+     */
+    public function setText($text)
+    {
+        $this->text = $text;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTime()
+    {
+        return $this->time;
+    }
+
+    /**
+     * @param mixed $time
+     * @return MicroPost
+     */
+    public function setTime($time)
+    {
+        $this->time = $time;
+        return $this;
+    }
+
+
 
     /**
      * @return Collection|Tag[]
@@ -65,6 +109,18 @@ class MicroPost
         if ($this->tags->contains($tag)) {
             $this->tags->removeElement($tag);
         }
+
+        return $this;
+    }
+
+    public function getTitle(): ?string
+    {
+        return $this->title;
+    }
+
+    public function setTitle(string $title): self
+    {
+        $this->title = $title;
 
         return $this;
     }
