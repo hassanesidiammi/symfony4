@@ -1,0 +1,24 @@
+// font awesome
+@import '~@fortawesome/fontawesome-free/scss/fontawesome';
+@import '~@fortawesome/fontawesome-free/scss/solid';
+@import '~@fortawesome/fontawesome-free/scss/regular';
+@import '~@fortawesome/fontawesome-free/scss/brands';
+
+// customize some Bootstrap variables
+$primary: #a4c5fc;
+$secondary: #85d2e0;
+$success: #acfca4;
+$info: #c3a4fc;
+$warning: #fce4a4;
+$danger: #fca5a4;
+$dark: #454545;
+$light: #d9d9d9;
+$body-color: mix(black, mix(blue, red, 70), 30);
+$light: lighten($body-color, 70);
+
+
+@import '~bootstrap/scss/bootstrap';
+
+
+.box-shadow { box-shadow: 0 .25rem .75rem mix(rgba(0, 0, 0, 0.5), $light, 80);}
+/*.container { width: 720px;}*/

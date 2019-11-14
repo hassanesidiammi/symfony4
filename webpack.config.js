@@ -24,15 +24,14 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
 
-    .addEntry('js/app', [
+    .addEntry('app', [
         './node_modules/jquery/dist/jquery.slim.js',
         './node_modules/popper.js/dist/popper.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
         './node_modules/holderjs/holder.min.js'
     ])
-    .addStyleEntry('css/app', [
-        './node_modules/bootstrap/dist/css/bootstrap.min.css',
-        './assets/css/app.css'
+    .addStyleEntry('global', [
+        './assets/css/app.scss'
     ])
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
@@ -62,7 +61,7 @@ Encore
     })
 
     // enables Sass/SCSS support
-    //.enableSassLoader()
+    .enableSassLoader()
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
