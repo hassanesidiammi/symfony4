@@ -11,3 +11,8 @@
 
     {{ include('blog/micro_post/_delete_form.html.twig') }}
 {% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+    {{ encore_entry_script_tags('form') }}
+{% endblock %}

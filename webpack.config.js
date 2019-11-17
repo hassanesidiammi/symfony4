@@ -30,6 +30,7 @@ Encore
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
         './node_modules/holderjs/holder.min.js'
     ])
+    .addEntry('form', './assets/js/form.js')
     .addStyleEntry('global', [
         './assets/css/app.scss'
     ])

@@ -16,8 +16,11 @@ $light: #d9d9d9;
 $body-color: mix(black, mix(blue, red, 70), 30);
 $light: lighten($body-color, 70);
 
+$tag-bg: $secondary;
+
 
 @import '~bootstrap/scss/bootstrap';
+@import "form";
 
 
 .box-shadow { box-shadow: 0 .25rem .75rem mix(rgba(0, 0, 0, 0.5), $light, 80);}

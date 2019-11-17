@@ -3724,7 +3724,7 @@ isstream@~0.1.2:
   resolved "https://registry.yarnpkg.com/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-jquery@3.4.1:
+jquery@3.4.1, jquery@>=3.4.0:
   version "3.4.1"
   resolved "https://registry.yarnpkg.com/jquery/-/jquery-3.4.1.tgz#714f1f8d9dde4bdfa55764ba37ef214630d80ef2"
   integrity sha512-36+AdBzCL+y6qjw5Tx7HgzeGCzC81MDDgaUP8ld2zhx58HdqXGoBd+tHdrBMiyjGQs0Hxs/MLZTu/eHNJJuWPw==
@@ -6305,6 +6305,13 @@ stylehacks@^4.0.0:
     browserslist "^4.0.0"
     postcss "^7.0.0"
     postcss-selector-parser "^3.0.0"
+
+suggestags@^1.9.0:
+  version "1.9.0"
+  resolved "https://registry.yarnpkg.com/suggestags/-/suggestags-1.9.0.tgz#c20cbe4142c7a6bb8a2f8d0f914614699c4913dc"
+  integrity sha512-Pu1fZeAvjWzBPBd3Ga2Z7AbANpucX3gtnaC8mJAp8QKnalLcNLOfImA97Sm+DaY2+ZEA0rUBB7DFsfMuaGRtlw==
+  dependencies:
+    jquery ">=3.4.0"
 
 supports-color@6.1.0, supports-color@^6.1.0:
   version "6.1.0"
