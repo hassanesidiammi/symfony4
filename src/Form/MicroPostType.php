@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\MicroPost;
 use App\Entity\Tag;
+use App\Form\Type\DateTimePickerType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CollectionType;
@@ -18,7 +19,7 @@ class MicroPostType extends AbstractType
         $builder
             ->add('title')
             ->add('text', TextareaType::class)
-            ->add('time')
+            ->add('time', DateTimePickerType::class)
             ->add('tags', EntityType::class, [
                 'class' => Tag::class,
                 'choice_label' => 'name',

@@ -1,4 +1,5 @@
 var Encore = require('@symfony/webpack-encore');
+var webpack = require('webpack');
 
 // Manually configure the runtime environment if not already configured yet by the "encore" command.
 // It's useful when you use tools that rely on webpack.config.js file.
@@ -28,7 +29,8 @@ Encore
         './node_modules/jquery/dist/jquery.slim.js',
         './node_modules/popper.js/dist/popper.min.js',
         './node_modules/bootstrap/dist/js/bootstrap.min.js',
-        './node_modules/holderjs/holder.min.js'
+        './node_modules/holderjs/holder.min.js',
+        './assets/js/app.js',
     ])
     .addStyleEntry('global', [
         './assets/css/app.scss'
@@ -72,6 +74,7 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
+    .addPlugin(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
 
     // uncomment if you use API Platform Admin (composer req api-admin)
     //.enableReactPreset()

@@ -4,6 +4,8 @@
 namespace App\Controller;
 
 use App\Repository\MicroPostRepository;
+use Doctrine\DBAL\Schema\Table;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\SessionInterface;
@@ -20,8 +22,13 @@ class BlogController
     /**
      * @Route("/", name="post_index")
      */
-    public function index(Environment $twig, MicroPostRepository $microPostRepository)
+    public function index(Environment $twig, MicroPostRepository $microPostRepository, EntityManagerInterface $entityManager)
     {
+        $sm = $entityManager->getConnection()->getSchemaManager();
+        dump($sm, array_map(function (Table $table){
+            return $table->getName();
+        }, $sm->listTables())); die;
+
         return new Response($twig->render('blog/index.html.twig', [
             'posts' => $microPostRepository->findAll(),
         ]));
