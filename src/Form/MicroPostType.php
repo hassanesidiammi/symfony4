@@ -3,10 +3,8 @@
 namespace App\Form;
 
 use App\Entity\MicroPost;
-use App\Entity\Tag;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use App\Form\Type\TagsInputType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -19,12 +17,7 @@ class MicroPostType extends AbstractType
             ->add('title')
             ->add('text', TextareaType::class)
             ->add('time')
-            ->add('tags', EntityType::class, [
-                'class' => Tag::class,
-                'choice_label' => 'name',
-                'multiple' => true,
-                'expanded' => true,
-            ]);
+            ->add('tags', TagsInputType::class);
     }
 
     public function configureOptions(OptionsResolver $resolver)

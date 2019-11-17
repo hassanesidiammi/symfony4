@@ -29,7 +29,7 @@ class MicroPost
     private $time;
 
     /**
-     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="microPosts")
+     * @ORM\ManyToMany(targetEntity="App\Entity\Tag", inversedBy="microPosts",cascade={"persist"})
      */
     private $tags;
 

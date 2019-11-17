@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TagRepository")
  */
-class Tag
+class Tag implements \JsonSerializable
 {
     /**
      * @ORM\Id()
@@ -28,9 +28,12 @@ class Tag
      */
     private $microPosts;
 
-    public function __construct()
+    public function __construct($name=null)
     {
         $this->microPosts = new ArrayCollection();
+        if ($name) {
+            $this->setName($name);
+        }
     }
 
     public function getId(): ?int
@@ -76,5 +79,18 @@ class Tag
         }
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return (string) $this->name;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function jsonSerialize()
+    {
+        return (string) $this;
     }
 }
