@@ -59,11 +59,13 @@ class MicroPost
 
     /**
      * @param mixed $text
+     *
      * @return MicroPost
      */
     public function setText($text)
     {
         $this->text = $text;
+
         return $this;
     }
 
@@ -77,15 +79,15 @@ class MicroPost
 
     /**
      * @param mixed $time
+     *
      * @return MicroPost
      */
     public function setTime($time)
     {
         $this->time = $time;
+
         return $this;
     }
-
-
 
     /**
      * @return Collection|Tag[]

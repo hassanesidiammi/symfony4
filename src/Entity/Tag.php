@@ -28,7 +28,7 @@ class Tag implements \JsonSerializable
      */
     private $microPosts;
 
-    public function __construct($name=null)
+    public function __construct($name = null)
     {
         $this->microPosts = new ArrayCollection();
         if ($name) {
@@ -87,7 +87,7 @@ class Tag implements \JsonSerializable
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function jsonSerialize()
     {

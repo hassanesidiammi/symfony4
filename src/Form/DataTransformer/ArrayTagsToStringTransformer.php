@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Form\DataTransformer;
-
 
 use App\Entity\Tag;
 use App\Repository\TagRepository;
@@ -10,7 +8,6 @@ use Symfony\Component\Form\DataTransformerInterface;
 
 class ArrayTagsToStringTransformer implements DataTransformerInterface
 {
-
     /**
      * @var TagRepository
      */
@@ -23,20 +20,20 @@ class ArrayTagsToStringTransformer implements DataTransformerInterface
 
     /**
      * @param Tag[] $tags
-     * @return mixed|string
      */
-    public function transform($tags) :string
+    public function transform($tags): string
     {
         return implode(',', $tags);
     }
 
     /**
      * @param string $names
-     * @return array
+     *
+     * @return Tag[]
      */
-    public function reverseTransform($names) :array
+    public function reverseTransform($names): array
     {
-        if (!$names){
+        if (!$names) {
             return [];
         }
 

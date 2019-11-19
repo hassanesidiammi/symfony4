@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Twig;
-
 
 use Twig\Extension\AbstractExtension;
 use Twig\Extension\GlobalsInterface;
@@ -23,7 +21,7 @@ class AppExtention extends AbstractExtension implements GlobalsInterface
     }
 
     /**
-     * @inheritDoc
+     * {@inheritdoc}
      */
     public function getGlobals()
     {

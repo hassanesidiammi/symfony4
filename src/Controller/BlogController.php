@@ -1,6 +1,5 @@
 <?php
 
-
 namespace App\Controller;
 
 use App\Repository\MicroPostRepository;
@@ -32,8 +31,6 @@ class BlogController
      */
     public function add(UrlGeneratorInterface $router)
     {
-        
-
         return new RedirectResponse($router->generate('post_index'));
     }
 
@@ -62,5 +59,4 @@ class BlogController
             'post' => $posts[$id],
         ]));
     }
-
 }

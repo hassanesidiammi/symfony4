@@ -13,7 +13,6 @@ use Symfony\Component\Form\FormView;
 
 class TagsInputType extends AbstractType
 {
-
     /**
      * @var TagRepository
      */
@@ -37,9 +36,8 @@ class TagsInputType extends AbstractType
         $view->vars['tags'] = $this->repository->findAll();
     }
 
-
     /**
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getParent()
     {
