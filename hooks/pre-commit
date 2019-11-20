@@ -1,0 +1,20 @@
+#!/bin/sh
+
+echo ""
+echo "# php-cs fix, START"
+echo ""
+
+changed_files=$(git diff --cached --name-only --diff-filter=ACM | grep -e '\.php$')
+
+echo $changed_files
+for changed_file in $changed_files
+do
+    ./bin/php-cs-fixer fix $changed_file
+    git add $changed_file
+done
+
+
+echo ""
+echo "# php-cs fix, DONE"
+echo ""
+echo ""
